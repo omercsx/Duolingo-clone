@@ -5,14 +5,27 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
-    padding: 10
+    padding: 10,
+    paddingTop: 50
   },
 
   title: {
     fontSize: 20,
     fontWeight: "bold",
-    alignSelf: "stretch"
+    alignSelf: "stretch",
+
+  },
+
+  optionsContainer: {
+    width: '100%',
+    flex: 1,
+    flexWrap: "wrap",
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignContent: 'space-between',
+    paddingTop: 16
   }
+
 })
 
 export default styles;
