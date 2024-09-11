@@ -30,6 +30,17 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: "bold",
     textAlign: "center",
+  },
+
+  selectedContainer: {
+    borderColor: '#81D5FE',
+    backgroundColor: '#DDF4FE'
+  },
+
+  selectedText: {
+    color: '#40BEF7',
+    fontWeight: "bold",
+    fontSize: 18
   }
 })
 
