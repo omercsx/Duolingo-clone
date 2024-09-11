@@ -1,4 +1,4 @@
-import { Image, Text, TouchableOpacity, View } from "react-native"
+import { Image, Text, TouchableOpacity } from "react-native"
 import styles from "./styles"
 import PropTypes from 'prop-types'
 

@@ -10,6 +10,10 @@ const App = () => {
   const [selected, setSelected] = useState(null)
   const { question, options } = oneQuestionWithOption
 
+  const onButtonPress = () => {
+    console.log("Button pressed")
+  }
+
   return (
     <View style={styles.root}>
       <Text style={styles.title}>{question}</Text>
@@ -24,7 +28,7 @@ const App = () => {
           />
         })}
       </View>
-      <Button />
+      <Button text="Check" onPress={onButtonPress} disabled={!selected} />
     </View>
   )
 }
