@@ -1,18 +1,20 @@
-import { Text, View } from "react-native";
+import { Text, View, SafeAreaView } from "react-native";
 import styles from "./App.styles"
 import ImageOption from "./src/components/ImageOption"
+import oneQuestionWithOption from "./assets/data/oneQuestionWithOption"
 
 const App = () => {
+  const { question, options } = oneQuestionWithOption
+
   return (
-    <View style={styles.root}>
-      <Text style={styles.title}>Which of these is the "Glass"?</Text>
+    <SafeAreaView style={styles.root}>
+      <Text style={styles.title}>{question}</Text>
       <View style={styles.optionsContainer}>
-        <ImageOption image="https://fsmd-assets.s3.eu-west-1.amazonaws.com/duolingo/images/cup.png" text="Cup" />
-        <ImageOption image="https://fsmd-assets.s3.eu-west-1.amazonaws.com/duolingo/images/glass.png" text="Glass" />
-        <ImageOption image="https://fsmd-assets.s3.eu-west-1.amazonaws.com/duolingo/images/milk.png" text="Milk" />
-        <ImageOption image="https://fsmd-assets.s3.eu-west-1.amazonaws.com/duolingo/images/coffee.png" text="Coffee" />
+        {options.map(option => {
+          return <ImageOption key={option.id} image={option.image} text={option.text} />
+        })}
       </View>
-    </View>
+    </SafeAreaView>
   )
 }
 
