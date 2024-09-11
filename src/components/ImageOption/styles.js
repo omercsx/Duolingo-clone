@@ -27,7 +27,9 @@ const styles = StyleSheet.create({
   },
 
   optionText: {
-
+    fontSize: 18,
+    fontWeight: "bold",
+    textAlign: "center",
   }
 })
 
