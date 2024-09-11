@@ -16,4 +16,13 @@ const ImageOption = ({ image, text }) => {
   )
 }
 
+ImageOption.propTypes = {
+  image: PropTypes.string.isRequired,
+  text: PropTypes.string
+}
+
+ImageOption.defaultProps = {
+  text: "Default Text"
+}
+
 export default ImageOption;

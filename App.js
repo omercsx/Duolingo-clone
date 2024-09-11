@@ -7,14 +7,14 @@ const App = () => {
   const { question, options } = oneQuestionWithOption
 
   return (
-    <SafeAreaView style={styles.root}>
+    <View style={styles.root}>
       <Text style={styles.title}>{question}</Text>
       <View style={styles.optionsContainer}>
         {options.map(option => {
           return <ImageOption key={option.id} image={option.image} text={option.text} />
         })}
       </View>
-    </SafeAreaView>
+    </View>
   )
 }
 
