@@ -1,8 +1,10 @@
 import { useState } from 'react'
 import { Text, View } from "react-native";
+
 import styles from "./App.styles"
-import ImageOption from "./src/components/ImageOption"
 import oneQuestionWithOption from "./assets/data/oneQuestionWithOption"
+import ImageOption from "./src/components/ImageOption"
+import Button from "./src/components/Button"
 
 const App = () => {
   const [selected, setSelected] = useState(null)
@@ -22,6 +24,7 @@ const App = () => {
           />
         })}
       </View>
+      <Button />
     </View>
   )
 }
