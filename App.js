@@ -2,8 +2,10 @@ import { useState, useEffect } from 'react'
 import { Alert, View } from "react-native";
 
 import styles from "./App.styles"
-import questions from "./assets/data/imageMulatipleChoiceQuestions"
-import ImageMultipleChoiceQuestion from './src/components/ImageMultipleChoiceQuestion/ImageMultipleChoiceQuestion';
+// import questions from "./assets/data/imageMulatipleChoiceQuestions"
+// import ImageMultipleChoiceQuestion from './src/components/ImageMultipleChoiceQuestion/ImageMultipleChoiceQuestion';
+import questions from "./assets/data/openEndedQuestions"
+import OpenEndedQuestion from './src/components/OpenEndedQuestion';
 
 const App = () => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0)
@@ -29,7 +31,12 @@ const App = () => {
 
   return (
     <View style={styles.root}>
-      <ImageMultipleChoiceQuestion
+      {/* <ImageMultipleChoiceQuestion
+        currentQuestion={currentQuestion}
+        onCorrect={onCorrect}
+        onWrong={onWrong}
+      /> */}
+      <OpenEndedQuestion
         currentQuestion={currentQuestion}
         onCorrect={onCorrect}
         onWrong={onWrong}
