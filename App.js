@@ -1,13 +1,11 @@
 import { useState, useEffect } from 'react'
-import { Alert, Text, View } from "react-native";
+import { Alert, View } from "react-native";
 
 import styles from "./App.styles"
-import ImageOption from "./src/components/ImageOption"
-import Button from "./src/components/Button"
 import questions from "./assets/data/imageMulatipleChoiceQuestions"
+import ImageMultipleChoiceQuestion from './src/components/ImageMultipleChoiceQuestion/ImageMultipleChoiceQuestion';
 
 const App = () => {
-  const [selected, setSelected] = useState(null)
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0)
   const [currentQuestion, setCurrentQuestion] = useState(questions[currentQuestionIndex])
 
@@ -21,33 +19,21 @@ const App = () => {
     }
   }, [currentQuestionIndex])
 
-  const onButtonPress = () => {
-    if (selected.correct) {
+  const onCorrect = () => {
+    setCurrentQuestionIndex(currentQuestionIndex + 1)
+  }
 
-      // move to next question
-      setCurrentQuestionIndex(currentQuestionIndex + 1)
-      setSelected(null)
-
-    } else {
-      Alert.alert("Wrong")
-    }
+  const onWrong = () => {
+    Alert.alert("Wrong")
   }
 
   return (
     <View style={styles.root}>
-      <Text style={styles.title}>{currentQuestion.question}</Text>
-      <View style={styles.optionsContainer}>
-        {currentQuestion.options.map(option => {
-          return <ImageOption
-            key={option.id}
-            image={option.image}
-            text={option.text}
-            isSelected={selected?.id === option.id}
-            handlePress={() => setSelected(option)}
-          />
-        })}
-      </View>
-      <Button text="Check" onPress={onButtonPress} disabled={!selected} />
+      <ImageMultipleChoiceQuestion
+        currentQuestion={currentQuestion}
+        onCorrect={onCorrect}
+        onWrong={onWrong}
+      />
     </View>
   )
 }
