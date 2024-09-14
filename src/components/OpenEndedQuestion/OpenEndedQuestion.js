@@ -35,8 +35,8 @@ const OpenEndedQuestion = ({ currentQuestion, onCorrect, onWrong }) => {
 }
 
 OpenEndedQuestion.propTypes = {
-  text: PropTypes.string.isRequired,
-  answer: PropTypes.string.isRequired,
+  text: PropTypes.string,
+  answer: PropTypes.string,
 }
 
 export default OpenEndedQuestion
