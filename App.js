@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Alert, View } from "react-native";
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import styles from "./App.styles"
 import questions from "./assets/data/allQuestions"
@@ -22,6 +23,14 @@ const App = () => {
     }
   }, [currentQuestionIndex])
 
+  useEffect(() => {
+    loadData()
+  }, [])
+
+  useEffect(() => {
+    saveDate()
+  }, [lives, currentQuestionIndex])
+
   const onCorrect = () => {
     setCurrentQuestionIndex(currentQuestionIndex + 1)
   }
@@ -39,6 +48,23 @@ const App = () => {
   const restart = () => {
     setCurrentQuestionIndex(0)
     setLives(LIVES)
+  }
+
+  const saveDate = async () => {
+    await AsyncStorage.setItem("lives", lives.toString())
+    await AsyncStorage.setItem("currentQuestionIndex", currentQuestionIndex.toString())
+  }
+
+  const loadData = async () => {
+    const savedLives = await AsyncStorage.getItem("lives")
+    if (savedLives) {
+      setLives(parseInt(savedLives))
+    }
+
+    const savedCurrentQuestionIndex = await AsyncStorage.getItem("currentQuestionIndex")
+    if (savedCurrentQuestionIndex) {
+      setCurrentQuestionIndex(parseInt(savedCurrentQuestionIndex))
+    }
   }
 
   return (
